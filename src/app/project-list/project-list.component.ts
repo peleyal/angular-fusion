@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Project } from '../models/project.model';
 import { Workflow } from '../models/workflow.model';
 import { ProjectsService } from '../projects.service';
-
-import { projects } from '../projects-testing-only';
 
 @Component({
   selector: 'app-project-list',
@@ -12,13 +10,14 @@ import { projects } from '../projects-testing-only';
   styleUrls: ['./project-list.component.css']
 })
 export class ProjectListComponent implements OnInit {
-  projects: projects;
+  projects: Project[];
   // TODO(peleyal): I should have 2 different components and use Input-Output
   // to communicate between them.
   selectedProject: Project
   selectedWorkflow: Workflow
 
-  constructor(private projectsService : ProjectsService) { }
+  constructor(private projectsService : ProjectsService) {
+  }
 
   ngOnInit() {
     this.projectsService.getProjects().subscribe((data: Project[]) => this.projects = data);
