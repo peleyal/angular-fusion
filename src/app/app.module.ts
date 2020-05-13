@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectsService } from './projects.service';
+import { WorkflowDetailsComponent } from './workflow-details/workflow-details.component';
+import { WorkflowsService } from './workflows.service';
 
 
 @NgModule({
@@ -17,15 +19,17 @@ import { ProjectsService } from './projects.service';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: ProjectListComponent },
+      { path: 'workflows/:id', component: WorkflowDetailsComponent },
     ])
   ],
   declarations: [
     AppComponent,
     TopBarComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    WorkflowDetailsComponent
   ],
   bootstrap: [ AppComponent ],
-  providers: [ProjectsService],
+  providers: [ProjectsService, WorkflowsService],
 })
 export class AppModule { }
 

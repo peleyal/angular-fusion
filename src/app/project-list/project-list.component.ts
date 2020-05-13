@@ -20,7 +20,8 @@ export class ProjectListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.projectsService.getProjects().subscribe((data: Project[]) => this.projects = data);
+    this.projectsService.getProjects().subscribe(
+      (data: Project[]) => this.projects = data);
   }
 
   onSelectProject(project: Project): void {

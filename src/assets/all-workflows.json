@@ -1,0 +1,10 @@
+[
+  {
+    "id": "hero-sdr-pipeline",
+    "steps": [
+      {"name" : "dbt"},
+      {"name" : "validation"},
+      {"name" : "release"}
+    ]
+  }
+]

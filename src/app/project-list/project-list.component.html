@@ -23,11 +23,9 @@
   </div>
 </div>
 
-<!--
-  TODO(peleyal): Read about binding like disabled. -->
 <div class="bottom-pane">
   <button [disabled]="!selectedProject">create</button>
-  <button [disabled]="!selectedWorkflow">edit</button>
+  <button [disabled]="!selectedWorkflow" [routerLink]="['/workflows', selectedWorkflow ? selectedWorkflow.id : '']">edit</button>
   <button [disabled]="!selectedWorkflow">view</button>
 </div>
 

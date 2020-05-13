@@ -3,7 +3,7 @@
     "id": "cohero-prod-data",
     "workflows": [
       {
-        "id": "sdr-pipeline"
+        "id": "hero-sdr-pipeline"
       },
       {
         "id": "csv2bq"
@@ -17,7 +17,7 @@
     "id": "coreg-prod-data",
     "workflows": [
       {
-        "id": "sdr-pipeline"
+        "id": "coreg-sdr-pipeline"
       },
       {
         "id": "dbt-only"
