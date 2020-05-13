@@ -9,6 +9,8 @@ import { projects } from '../projects';
 })
 export class ProjectListComponent {
   projects = projects;
+  // TODO(peleyal): I should have 2 different components and use Input-Output
+  // to communicate between them
   selectedProject: Project
 
   onSelect(project: Project): void {
