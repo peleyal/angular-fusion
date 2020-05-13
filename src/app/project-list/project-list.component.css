@@ -1,8 +1,8 @@
 
-.project-item-selected {
-  background-color:blue;
+.list-item-selected {
+  background-color:#4b0336;
 }
-.project-item-selected span {
+.list-item-selected span {
   color: white
 }
 
@@ -14,6 +14,11 @@
   color: black;
   border: 1px solid;
   height: 300px;
+  padding-inline-start: 25px;
+}
+
+.list li {
+  margin: 3px;
 }
 
 .left-pane {

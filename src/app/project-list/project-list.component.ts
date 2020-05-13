@@ -12,9 +12,15 @@ export class ProjectListComponent {
   // TODO(peleyal): I should have 2 different components and use Input-Output
   // to communicate between them
   selectedProject: Project
+  selectedWorkflow: Workflow
 
-  onSelect(project: Project): void {
+  onSelectProject(project: Project): void {
     this.selectedProject = project;
+    this.selectedWorkflow = null;
+  }
+
+  onSelectWorkflow(workflow: Workflow): void {
+    this.selectedWorkflow = workflow;
   }
 }
 

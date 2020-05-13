@@ -3,9 +3,9 @@
   <div class="left-pane">
     <h2>Projects</h2>
     <ul class="list">
-      <li *ngFor="let project of projects" (click)="onSelect(project)"
-        [ngClass]="{'project-item-selected': project === selectedProject}">
-        <span class="project-item">{{project.id}}</span>
+      <li *ngFor="let project of projects" (click)="onSelectProject(project)"
+        [ngClass]="{'list-item-selected': project === selectedProject}">
+        <span>{{project.id}}</span>
       </li>
     </ul>
   </div>
@@ -14,7 +14,8 @@
     <h2>Workflows</h2>
       <ul class="list">
         <div *ngIf="selectedProject">
-          <li *ngFor="let workflow of selectedProject.workflows">
+          <li *ngFor="let workflow of selectedProject.workflows" (click)="onSelectWorkflow(workflow)"
+            [ngClass]="{'list-item-selected': workflow === selectedWorkflow}">
             <span>{{workflow.id}}</span>
           </li>
         </div>
@@ -22,10 +23,12 @@
   </div>
 </div>
 
+<!--
+  TODO(peleyal): Read about binding like disabled. -->
 <div class="bottom-pane">
   <button [disabled]="!selectedProject">create</button>
-  <button [disabled]="!selectedProject">edit</button>
-  <button [disabled]="!selectedProject">view</button>
+  <button [disabled]="!selectedWorkflow">edit</button>
+  <button [disabled]="!selectedWorkflow">view</button>
 </div>
 
 <!-- 
