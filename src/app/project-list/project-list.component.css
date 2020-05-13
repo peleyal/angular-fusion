@@ -1,5 +1,18 @@
 
+.project-item-selected {
+  background-color:blue;
+}
 
+.project-item-selected span {
+  color: white
+}
+
+.projects {
+  color: black;
+  border: 1px solid;
+  height: 200px;
+  width: 300px;
+}
 
 /*
 Copyright Google LLC. All Rights Reserved.

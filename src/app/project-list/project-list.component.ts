@@ -9,9 +9,10 @@ import { projects } from '../projects';
 })
 export class ProjectListComponent {
   projects = projects;
+  selectedProject: Project
 
-  share() {
-    window.alert('The project has been shared!');
+  onSelect(project: Project): void {
+    this.selectedProject = project;
   }
 }
 

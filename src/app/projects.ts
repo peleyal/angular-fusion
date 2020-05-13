@@ -1,9 +1,18 @@
 export const projects = [
   {
     id: 'csp-cohero-prod-data',
+    workflows: [
+      {id: 'sdr-pipeline',},
+      {id: 'biostats-transformations',},
+      {id: 'csv2bq',}
+    ],
   },
   {
     id: 'csp-coreg-prod-data',
+    workflows: [
+      {id: 'sdr-pipeline',},
+      {id: 'csv2bq',}
+    ],
   },
   {
     id: 'csp-shasta-prod-data',

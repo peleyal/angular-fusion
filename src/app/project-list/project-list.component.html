@@ -1,11 +1,21 @@
 <h2>Projects</h2>
 
-<div *ngFor="let project of projects">
+<ul class="projects">
+  <li *ngFor="let project of projects"
+      (click)="onSelect(project)"
+      [ngClass]="{'project-item-selected': project === selectedProject}">
+    <span class="project-item">{{project.id}}</span>
+  </li>
+</ul>
 
-  <h3>
-      {{ project.id }}
-  </h3>
+<div *ngIf="selectedProject">
 
+  <h2>Workflows</h2>
+  <span>{{selectedProject.id}}</span>
+
+  <li *ngFor="let workflow of selectedProject.workflows">
+    <span>{{workflow.id}}</span>
+  </li>
 </div>
 
 <!-- 
