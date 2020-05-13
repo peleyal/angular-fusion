@@ -1,0 +1,36 @@
+[
+  {
+    "id": "cohero-prod-data",
+    "workflows": [
+      {
+        "id": "sdr-pipeline"
+      },
+      {
+        "id": "csv2bq"
+      },
+      {
+        "id": "biostats-testing"
+      }
+    ]
+  },
+  {
+    "id": "coreg-prod-data",
+    "workflows": [
+      {
+        "id": "sdr-pipeline"
+      },
+      {
+        "id": "dbt-only"
+      }
+    ]
+  },
+  {
+    "id": "shasta-prod-data"
+  },
+  {
+    "id": "cohero-nonprod-data"
+  },
+  {
+    "id": "shasta-nonprod-data"
+  },
+]

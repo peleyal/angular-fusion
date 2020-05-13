@@ -1,3 +1,3 @@
-export class Workflow {
+export interface Workflow {
   id: string;
 }
