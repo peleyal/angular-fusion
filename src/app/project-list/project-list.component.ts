@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Project } from '../models/project.model'
+import { Workflow } from '../models/workflow.model'
 import { projects } from '../projects';
 
 @Component({
