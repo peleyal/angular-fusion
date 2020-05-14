@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { GojsAngularModule } from 'gojs-angular';
+
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProjectListComponent } from './project-list/project-list.component';
@@ -17,6 +19,7 @@ import { WorkflowsService } from './workflows.service';
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    GojsAngularModule,
     RouterModule.forRoot([
       { path: '', component: ProjectListComponent },
       { path: 'workflows/:id', component: WorkflowDetailsComponent },
