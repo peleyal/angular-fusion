@@ -20,12 +20,24 @@ export class WorkflowDetailsComponent implements OnInit {
   workflowId: string;
   workflow: Workflow;
 
+  stepColors = new Map<string, string>();
+
   @ViewChild('myDiagram', { static: true }) public myDiagramComponent: DiagramComponent;
   @ViewChild('myPalette', { static: true }) public myPaletteComponent: PaletteComponent;
 
   constructor(private route: ActivatedRoute,
               private workflowsService: WorkflowsService,
-              private cdr: ChangeDetectorRef) { }
+              private cdr: ChangeDetectorRef) { 
+    this.stepColors.set('BETL', 'lightyellow');
+    this.stepColors.set('Validation', 'violet');
+    this.stepColors.set('Release', 'lime');
+    this.stepColors.set('Schema', 'lightblue');
+    this.stepColors.set('Export', 'lightgreen');
+
+    for(let key of Array.from( this.stepColors.keys()) ) {
+      this.paletteNodeData.push({key: key, color: this.stepColors.get(key)});
+    }
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => { this.workflowId = 
@@ -34,10 +46,14 @@ export class WorkflowDetailsComponent implements OnInit {
     this.workflowsService.getWorkflow(this.workflowId).subscribe(
       (data : Workflow) => {
         this.workflow = data;
-        for (let step of data.steps) {
-          diagramNodeData.push({ key: step.name, color: 'lightyellow' })
-        }
-      });
+        data.steps.forEach((step, index) => {
+          this.diagramNodeData.push({ key: step.name, color: this.stepColors.get(step.stepType) });
+          if(index > 0){
+            this.diagramLinkData.push(
+              { key: index, from: data.steps[index -1].name, to: data.steps[index].name, fromPort: 'r', toPort: '1' });
+          }
+        })});
+
   }
 
   // initialize diagram / templates
@@ -100,15 +116,8 @@ export class WorkflowDetailsComponent implements OnInit {
     return dia;
   }
 
-  public diagramNodeData: Array<go.ObjectData> = [
-    { key: 'BETL', color: 'lightyellow' },
-    { key: 'Validation', color: 'violet' },
-    { key: 'Release', color: 'lime' }
-  ];
-  public diagramLinkData: Array<go.ObjectData> = [
-    { key: 0, from: 'BETL', to: 'Validation', fromPort: 'r', toPort: '1' },
-    { key: 1, from: 'Validation', to: 'Release', fromPort: 'r', toPort: 'l' },
-  ];
+  public diagramNodeData: Array<go.ObjectData> = [];
+  public diagramLinkData: Array<go.ObjectData> = [];
   public diagramDivClassName: string = 'myDiagramDiv';
   public diagramModelData = { prop: 'value' };
   public skipsDiagramUpdate = false;
@@ -151,13 +160,7 @@ export class WorkflowDetailsComponent implements OnInit {
 
     return palette;
   }
-  public paletteNodeData: Array<go.ObjectData> = [
-    { key: 'BETL', color: 'lightyellow' },
-    { key: 'Validation', color: 'violet' },
-    { key: 'Release', color: 'lime' },
-    { key: 'Schema', color: 'lightblue' },
-    { key: 'Export', color: 'lightgreen' }
-  ];
+  public paletteNodeData: Array<go.ObjectData> = [];
 
   public paletteLinkData: Array<go.ObjectData> = [];
 

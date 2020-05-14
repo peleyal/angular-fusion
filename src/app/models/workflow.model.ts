@@ -5,4 +5,5 @@ export interface Workflow {
 
 export interface Step {
   name: string;
+  stepType: string;
 }

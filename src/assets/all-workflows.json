@@ -2,9 +2,18 @@
   {
     "id": "hero-sdr-pipeline",
     "steps": [
-      {"name" : "dbt"},
-      {"name" : "validation"},
-      {"name" : "release"}
+      {
+        "name" : "dbt",
+        "stepType": "BETL"
+      },
+      {
+        "name" : "validation",
+        "stepType": "Validation"
+      },
+      {
+        "name" : "release",
+        "stepType":"Release"
+      }
     ]
   }
 ]
