@@ -19,6 +19,12 @@
   </gojs-diagram>
 </div>
 
+<div *ngIf="selectedNode">
+  {{selectedNode.key}}
+</div>
+
+
+
 <!--<div class="left">
   <app-inspector [selectedNode]='selectedNode' (onFormChange)='handleInspectorChange($event)'></app-inspector>
 </div>-->

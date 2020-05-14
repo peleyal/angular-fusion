@@ -189,4 +189,29 @@ export class WorkflowDetailsComponent implements OnInit {
       this.diagramNodeData[index] = { key: newNodeData.key, color: newNodeData.color };
     }
   }
+
+  public observedDiagram = null;
+  // currently selected node; for inspector
+  public selectedNode: go.Node | null = null;
+
+  public ngAfterViewInit() {
+
+    if (this.observedDiagram) return;
+    this.observedDiagram = this.myDiagramComponent.diagram;
+    this.cdr.detectChanges(); // IMPORTANT: without this, Angular will throw ExpressionChangedAfterItHasBeenCheckedError (dev mode only)
+
+    const appComp: WorkflowDetailsComponent = this;
+    // listener for inspector
+    this.myDiagramComponent.diagram.addDiagramListener('ChangedSelection', function(e) {
+      if (e.diagram.selection.count === 0) {
+        appComp.selectedNode = null;
+      }
+      const node = e.diagram.selection.first();
+      if (node instanceof go.Node) {
+        appComp.selectedNode = node;
+      } else {
+        appComp.selectedNode = null;
+      }
+    });
+  } // end ngAfterViewInit
 }
