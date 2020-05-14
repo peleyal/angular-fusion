@@ -190,14 +190,10 @@ export class WorkflowDetailsComponent implements OnInit {
     }
   }
 
-  public observedDiagram = null;
   // currently selected node; for inspector
   public selectedNode: go.Node | null = null;
 
   public ngAfterViewInit() {
-
-    if (this.observedDiagram) return;
-    this.observedDiagram = this.myDiagramComponent.diagram;
     this.cdr.detectChanges(); // IMPORTANT: without this, Angular will throw ExpressionChangedAfterItHasBeenCheckedError (dev mode only)
 
     const appComp: WorkflowDetailsComponent = this;

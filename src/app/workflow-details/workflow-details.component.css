@@ -33,6 +33,11 @@ body {
   margin: 5px;
 }
 
+.right {
+  padding: 5px;
+  margin: 5px;
+}
+
 .box {
   border: solid 1px black;
   background: whitesmoke;
