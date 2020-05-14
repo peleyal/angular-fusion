@@ -9,32 +9,25 @@ body {
 .myDiagramDiv {
   background: whitesmoke;
   height: 250px;
-  width: 600px;
   border: 1px solid black;
 }
 
 .myPaletteDiv {
   background: lightcyan;
   border: 1px solid navy;
-  width: 150px;
   height: 250px;
-}
-
-.myOverviewDiv {
-  width: 200px;
-  height: 150px;
-  background: whitesmoke;
-  border: 1px solid black;
 }
 
 .left {
   float: left;
+  width: 20%;
   padding: 5px;
   margin: 5px;
 }
 
 .right {
   float: left;
+  width: 70%;
   padding: 5px;
   margin: 5px;
 }
