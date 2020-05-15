@@ -4,7 +4,6 @@
   </h2>
 </div>
 
-
 <div class="left">
   Palette
   <gojs-palette #myPalette [initPalette]='initPalette' [divClassName]='paletteDivClassName' [nodeDataArray]='paletteNodeData'
@@ -19,8 +18,8 @@
   </gojs-diagram>
 </div>
 
-<div class="bottom" *ngIf="selectedNode">
-  {{selectedNode.key}}
+<div class="bottom">
+  <span *ngIf="selectedNode">{{selectedNode.key}}</span>
 </div>
 
 
